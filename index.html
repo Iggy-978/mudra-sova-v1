@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#082c24">
+  <meta name="description" content="Projekt Hrast – Mudra sova Sveznalica V4.2 Alpha Pro · Build 18">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon-192.png">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <link rel="stylesheet" href="styles.css">
+  <title>Mudra sova Sveznalica V4.2 Alpha Pro · Build 18</title>
+</head>
+<body>
+  <div id="app">
+    <section id="homeView" class="view active home-real">
+  <div class="hero-crop">
+    <img src="home-hero.png" alt="Čarobna šuma, Mudra sova, Inga i Niko">
+    <button class="profile-hotspot inga-hotspot" data-profile="inga" aria-label="Idi u Ingingu Akademiju znanja"><span>Idi u Akademiju znanja</span></button><button class="profile-action-hotspot inga-action-hotspot" data-profile="inga" aria-label="Idi u Akademiju znanja"></button>
+    <button class="profile-hotspot niko-hotspot" data-profile="niko" aria-label="Idi u Nikinu Akademiju istraživača"><span>Idi u Akademiju istraživača</span></button><button class="profile-action-hotspot niko-action-hotspot" data-profile="niko" aria-label="Idi u Akademiju istraživača"></button>
+  </div>
+  <div class="home-day-panels">
+    <section class="home-days inga-days"><header><h2><img class="section-owl" src="assets/owl-professional.png" alt=""> DANI ZA INGU</h2><button data-home-progress="inga">Pregled napretka</button></header><div id="homeIngaDays" class="home-day-grid"></div></section>
+    <section class="home-days niko-days"><header><h2><img class="section-owl" src="assets/owl-professional.png" alt=""> DANI ZA NIKU</h2><button data-home-progress="niko">Pregled napretka</button></header><div id="homeNikoDays" class="home-day-grid"></div></section>
+  </div>
+  <nav class="home-nav"><button data-action="home">Početna</button><button data-action="academy"><img src="assets/owl-professional.png" alt=""> Akademija</button><button data-action="rewards"><img src="assets/acorn-3d.png" alt=""> Zlatni žirevi</button><button data-action="settings">Postavke glasa</button></nav>
+  <button id="voiceStatus" class="voice-status" data-action="settings">Učitavam glas Mudre sove…</button>
+</section>
+<section id="academyView" class="view">
+      <header class="app-header">
+        <button class="round" data-action="home">←</button>
+        <div>
+          <small id="academyLabel">Akademija</small>
+          <h2 id="academyTitle">Dobro došla</h2>
+        </div>
+        <button class="round" data-action="speak">🔊</button>
+      </header>
+
+      <div class="academy-cover">
+        <div class="fireflies" aria-hidden="true"></div>
+        <div class="academy-overlay">
+          <span id="academyBadge">DAN 1</span>
+          <h2 id="missionTitle">Tajna Starog hrasta</h2>
+          <p id="missionText">Prva pustolovina spremna je za tebe.</p>
+          <button class="play-button" data-action="start-day">▶ Pokreni Dan 1</button>
+        </div>
+      </div>
+
+      <div class="progress-card">
+        <div>
+          <small>Napredak profila</small>
+          <strong id="profileProgress">0 / 7 dana</strong>
+        </div>
+        <div id="profileRewards" class="reward-row"></div>
+      </div>
+
+      <div class="day-list" id="dayList"></div>
+    </section>
+
+    
+    <section id="ingaDayView" class="view inga-book-view">
+      <header class="app-header">
+        <button class="round" data-action="academy">←</button>
+        <div><small id="ingaDayLabel">INGA · DAN 8</small><h2 id="ingaDayTitle">Šapat Srebrnog potoka</h2></div>
+        <button class="round" data-action="speak-inga-page">🔊</button>
+      </header>
+      <main class="book-stage">
+        <aside id="strategyReminder" class="strategy-reminder" tabindex="0">
+          <span class="strategy-owl"><img src="assets/mudra-sova-filmska.png" alt="Mudra sova"></span><div><b>Podsjetnik Mudre sove</b><small>Pročitaj polako · pronađi podatke · riješi korak po korak · provjeri</small></div>
+        </aside>
+        <div class="book-toolbar">
+          <div class="page-dots" id="ingaPageDots"></div>
+          <div class="book-tools">
+            <button data-action="font-down">A−</button><button data-action="font-up">A+</button>
+            <button data-action="speak-inga-page">Poslušaj</button><button data-action="pause-speech">Pauza</button><button data-action="stop-speech">Zaustavi</button>
+          </div>
+        </div>
+        <article id="ingaBookPage" class="book-page">
+          <div id="ingaPageArt" class="book-art"><div class="fireflies" aria-hidden="true"></div><div class="chapter-ribbon" id="ingaChapterRibbon"></div></div>
+          <div class="parchment-panel">
+            <h2 id="ingaPageHeading"></h2>
+            <div id="ingaPageContent" class="reading-text"></div>
+            <div id="ingaInteractiveArea"></div>
+          </div>
+        </article>
+        <div class="book-navigation">
+          <button id="ingaPrev" class="secondary" data-action="inga-prev">← Prethodna</button>
+          <span id="ingaPageCount">1 / 7</span>
+          <button id="ingaNext" class="primary" data-action="inga-next">Sljedeća →</button>
+        </div>
+      </main>
+    </section>
+
+    <section id="ingaTasksView" class="view inga-book-view">
+      <header class="app-header">
+        <button class="round" data-action="inga-story">←</button>
+        <div><small>INGA · RADNA BILJEŽNICA</small><h2 id="workbookTitle">Zadaci</h2></div>
+        <button class="round" data-action="print-inga">🖨️</button>
+      </header>
+      <main class="workbook-shell">
+        <div class="workbook-heading"><img class="workbook-owl" src="assets/owl-professional.png" alt="Mudra sova"><div><small>PROJEKT HRAST</small><h2 id="workbookDayTitle"></h2></div><div class="acorn-counter"><img src="assets/acorn-3d.png" alt="Zlatni 3D žir"><b id="ingaAcorns">0</b></div></div>
+        <div id="ingaTasksText" class="task-grid"></div>
+        <button class="success wide" data-action="finish-inga-day">Završila sam današnju pustolovinu</button>
+      </main>
+    </section>
+<section id="nikoDayView" class="view lesson-view">
+      <header class="app-header">
+        <button class="round" data-action="academy">←</button>
+        <div><small id="nikoDayLabel">NIKO · DAN 1</small><h2 id="nikoStepTitle">Pozdravi Mudru sovu</h2></div>
+        <button class="round" data-action="speak-niko">🔊</button>
+      </header>
+      <div class="niko-scene">
+        <div class="fireflies" aria-hidden="true"></div>
+        <div class="owl"><img src="assets/owl-professional.png" alt="Mudra sova u filmskom 3D stilu"></div>
+        <div id="nikoSpeech" class="speech">Bok, Niko! Dodirni Mudru sovu.</div>
+      </div>
+      <div id="nikoActivity" class="niko-activity"></div>
+      <div class="niko-actions">
+        <button class="secondary" data-action="repeat-niko">🔊 Ponovi</button>
+        <button id="nikoNext" class="primary" data-action="next-niko" disabled>Sljedeće →</button>
+      </div>
+    </section>
+
+    <section id="simpleView" class="view">
+      <header class="app-header">
+        <button class="round" data-action="home">←</button>
+        <div><small>PROJEKT HRAST</small><h2 id="simpleTitle">Uskoro</h2></div>
+      </header>
+      <div class="simple-card">
+        <div id="simpleIcon">🌳</div>
+        <h2 id="simpleHeading">Ovaj dio pripremamo</h2>
+        <p id="simpleText">Sadržaj će se dodavati kroz sljedeće verzije aplikacije.</p>
+      </div>
+    </section>
+  </div>
+
+  <div id="voiceModal" class="modal" hidden><div class="modal-card"><button id="closeVoice" class="modal-close">×</button><img src="assets/owl-professional.png" alt="Mudra sova"><h2>TTS glas Mudre sove</h2><p>Build 18 privremeno koristi muški TTS glas. Aplikacija automatski bira hrvatski muški glas kada je dostupan i pamti odabir.</p><select id="voiceSelect"></select><div class="modal-actions"><button id="testVoice" class="secondary">🔊 Poslušaj probu</button><button id="saveVoice" class="primary">Spremi glas</button></div><small id="voiceHelp"></small></div></div>
+  <div id="toast" class="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>
