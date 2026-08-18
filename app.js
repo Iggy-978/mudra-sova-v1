@@ -468,6 +468,7 @@ function showMudraKarta35(day=mk35day()){
 
    <section class="mk353-stage" role="dialog" aria-modal="true">
      <button class="mk353-back" type="button" aria-label="Natrag"></button>
+     <button class="mk353-exit" type="button">← Natrag na avanture</button>
 
      <div class="mk353-daycover">
        <small>DAN</small><strong>${day} / 28</strong><span>🌰 ${Math.max(0,day-1)}</span>
@@ -510,7 +511,16 @@ function showMudraKarta35(day=mk35day()){
  };
  o.querySelectorAll(".mk353-hot[data-index]").forEach(b=>b.onclick=()=>showPop(+b.dataset.index));
  o.querySelector(".mk353-popx").onclick=()=>{pop.hidden=true;pop.classList.remove("show")};
- o.querySelector(".mk353-back").onclick=()=>o.remove();
+ const closeMudraKarta=()=>{
+   try{ if("speechSynthesis" in window) speechSynthesis.cancel(); }catch(e){}
+   o.classList.remove("open");
+   setTimeout(()=>{
+     o.remove();
+     try{ openAcademy("inga"); }catch(e){}
+   },220);
+ };
+ o.querySelector(".mk353-back").onclick=closeMudraKarta;
+ o.querySelector(".mk353-exit").onclick=closeMudraKarta;
 
  o.querySelector(".mk353-hot.listen").onclick=()=>{
    const t=`Inga, pogledaj što si danas naučila. Tvoj Hrast znanja dobio je novu granu. Danas otkrivaš ${x[1].toLowerCase()}. ${x[6]}`;
