@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#082c24">
-  <meta name="description" content="Projekt Hrast – Mudra sova Sveznalica V4.2 Alpha Pro · Build 18">
+  <meta name="description" content="Projekt Hrast – Mudra sova Sveznalica V4.2 · Build 32">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="icon-192.png">
   <link rel="apple-touch-icon" href="icon-192.png">
   <link rel="stylesheet" href="styles.css">
-  <title>Mudra sova Sveznalica V4.2 Alpha Pro · Build 18</title>
+  <title>Mudra sova Sveznalica V4.2 · Build 32</title>
 </head>
 <body>
   <div id="app">
@@ -100,7 +100,7 @@
       <main class="workbook-shell">
         <div class="workbook-heading"><img class="workbook-owl" src="assets/owl-professional.png" alt="Mudra sova"><div><small>PROJEKT HRAST</small><h2 id="workbookDayTitle"></h2></div><div class="acorn-counter"><img src="assets/acorn-3d.png" alt="Zlatni 3D žir"><b id="ingaAcorns">0</b></div></div>
         <div id="ingaTasksText" class="task-grid"></div>
-        <button class="success wide" data-action="finish-inga-day">Završila sam današnju pustolovinu</button>
+        <button id="finishIngaDayButton" class="success wide" data-action="finish-inga-day" type="button">Završila sam današnju pustolovinu</button>
       </main>
     </section>
 <section id="nikoDayView" class="view lesson-view">
@@ -134,7 +134,59 @@
     </section>
   </div>
 
-  <div id="voiceModal" class="modal" hidden><div class="modal-card"><button id="closeVoice" class="modal-close">×</button><img src="assets/owl-professional.png" alt="Mudra sova"><h2>TTS glas Mudre sove</h2><p>Build 18 privremeno koristi muški TTS glas. Aplikacija automatski bira hrvatski muški glas kada je dostupan i pamti odabir.</p><select id="voiceSelect"></select><div class="modal-actions"><button id="testVoice" class="secondary">🔊 Poslušaj probu</button><button id="saveVoice" class="primary">Spremi glas</button></div><small id="voiceHelp"></small></div></div>
+  <div id="voiceModal" class="modal" hidden><div class="modal-card"><button id="closeVoice" class="modal-close">×</button><img src="assets/owl-professional.png" alt="Mudra sova"><h2>TTS glas Mudre sove</h2><p>Build 35.5 privremeno koristi muški TTS glas. Aplikacija automatski bira hrvatski muški glas kada je dostupan i pamti odabir.</p><select id="voiceSelect"></select><div class="modal-actions"><button id="testVoice" class="secondary">🔊 Poslušaj probu</button><button id="saveVoice" class="primary">Spremi glas</button></div><small id="voiceHelp"></small></div></div>
+
+  <div id="ingaFinalParchment" class="reward-overlay inga-completion-overlay" role="dialog" aria-modal="true" aria-label="Završetak avanture" hidden>
+    <div class="cinematic-stage" aria-hidden="true">
+      <div class="cinema-letterbox cinema-letterbox-top"></div>
+      <div class="cinema-letterbox cinema-letterbox-bottom"></div>
+      <div class="cinema-backdrop">
+        <div class="cinema-moon"></div>
+        <div class="cinema-trees cinema-trees-back"></div>
+        <div class="cinema-trees cinema-trees-front"></div>
+        <div class="cinema-fog cinema-fog-one"></div>
+        <div class="cinema-fog cinema-fog-two"></div>
+        <div class="cinema-light-rays"></div>
+        <div class="cinema-fireflies"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      </div>
+      <div class="cinema-branch"></div>
+      <div class="flying-owl" aria-hidden="true">
+        <div class="owl-glow"></div>
+        <div class="owl-character">
+          <img class="owl-body-layer" src="assets/owl-professional.png" alt="">
+          <div class="owl-head-layer"><img src="assets/owl-professional.png" alt=""></div>
+          <span class="owl-eyelid owl-eyelid-left"></span>
+          <span class="owl-eyelid owl-eyelid-right"></span>
+          <span class="owl-eye-glint owl-eye-glint-left"></span>
+          <span class="owl-eye-glint owl-eye-glint-right"></span>
+          <span class="owl-brow owl-brow-left"></span>
+          <span class="owl-brow owl-brow-right"></span>
+          <span class="owl-beak-flap"></span>
+          <span class="owl-neck-feathers"></span>
+          <span class="owl-cloak-breathe"></span>
+          <span class="owl-hat-sway"></span>
+          <span class="owl-wand"><i></i></span>
+        </div>
+        <span class="owl-wing wing-left"></span><span class="owl-wing wing-right"></span><span class="carried-scroll"></span>
+      </div>
+      <div class="drop-scroll"><span class="scroll-band"></span></div>
+      <div class="cinema-frame-sequence" aria-hidden="true">
+        <img class="cinema-sequence-image" src="assets/cinematic-ending-frame-01.jpg" alt="">
+      </div>
+      <div class="cinema-ground-glow"></div>
+      <div class="cinema-vignette"></div>
+    </div>
+    <div class="inga-parchment-card" role="document">
+      <div class="parchment-sparkles" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="parchment-acorn"><img src="assets/acorn-3d.png" alt="Sjajni zlatni žir"></div>
+      <small class="parchment-kicker">PORUKA MUDRE SOVE</small>
+      <h2>Bravo, Inga!</h2>
+      <p class="completion-summary"></p>
+      <div class="completion-milestone"></div>
+      <div class="dad-message" aria-live="polite"><p>Netko je danas posebno ponosan na tebe...</p><strong>❤️ Voli te tata.</strong><span class="signature-fireflies" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+      <button class="primary parchment-continue" type="button">Nastavi sutra</button>
+    </div>
+  </div>
   <div id="toast" class="toast"></div>
   <script src="app.js"></script>
 </body>
